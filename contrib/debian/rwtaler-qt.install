@@ -1,0 +1,6 @@
+usr/local/bin/rwtaler-qt usr/bin
+share/pixmaps/rwtaler32.xpm usr/share/pixmaps
+share/pixmaps/rwtaler16.xpm usr/share/pixmaps
+share/pixmaps/rwtaler128.png usr/share/pixmaps
+debian/rwtaler-qt.desktop usr/share/applications
+debian/rwtaler-qt.protocol usr/share/kde4/services/

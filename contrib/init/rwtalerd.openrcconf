@@ -1,0 +1,33 @@
+# /etc/conf.d/rwtalerd: config file for /etc/init.d/rwtalerd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/rwtaler/rwtaler.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/rwtalerd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/rwtalerd.pid"
+
+# Where to write rwtalerd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/rwtalerd"
+
+# User and group to own rwtalerd process
+#BITCOIND_USER="rwtaler"
+#BITCOIND_GROUP="rwtaler"
+
+# Path to rwtalerd executable
+#BITCOIND_BIN="/usr/bin/rwtalerd"
+
+# Nice value to run rwtalerd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#BITCOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60

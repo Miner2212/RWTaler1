@@ -1,0 +1,3 @@
+usr/local/bin/rwtalerd usr/bin
+usr/local/bin/rwtaler-cli usr/bin
+debian/examples/rwtaler.conf etc/rwtaler

@@ -1,0 +1,8 @@
+/usr/bin/rwtaler-cli		--	gen_context(system_u:object_r:rwtaler_exec_t,s0)
+/usr/sbin/rwtalerd		--	gen_context(system_u:object_r:rwtaler_exec_t,s0)
+/usr/lib(64)?/rwtaler/rwtalerd		--	gen_context(system_u:object_r:rwtaler_exec_t,s0)
+
+/etc/rwtaler(/.*)?		gen_context(system_u:object_r:rwtaler_conf_t,s0)
+/var/lib/rwtaler(/.*)?		gen_context(system_u:object_r:rwtaler_var_lib_t,s0)
+
+(/var)?/run/rwtalerd(/.*)?   gen_context(system_u:object_r:rwtaler_var_run_t,s0)

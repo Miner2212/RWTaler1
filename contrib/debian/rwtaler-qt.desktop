@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=RWTaler Core
+Comment=RWTaler P2P Cryptocurrency
+Comment[fr]=RWTaler, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=RWTaler, eşten eşe kriptografik sanal para birimi
+Exec=rwtaler-qt %u
+Terminal=false
+Type=Application
+Icon=rwtaler128
+MimeType=x-scheme-handler/rwtaler;
+Categories=Office;Finance;
+StartupWMClass=RWTaler-qt

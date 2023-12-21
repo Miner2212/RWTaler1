@@ -1,0 +1,81 @@
+policy_module(rwtaler, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type rwtaler_t;
+type rwtaler_exec_t;
+init_daemon_domain(rwtaler_t, rwtaler_exec_t)
+
+permissive rwtaler_t;
+
+type rwtaler_initrc_exec_t;
+init_script_file(rwtaler_initrc_exec_t)
+
+type rwtaler_conf_t;
+files_type(rwtaler_conf_t)
+
+type rwtaler_var_lib_t;
+files_type(rwtaler_var_lib_t)
+
+type rwtaler_var_run_t;
+files_type(rwtaler_var_run_t)
+
+type rwtaler_port_t;
+corenet_port(rwtaler_port_t)
+
+########################################
+#
+# rwtaler local policy
+#
+allow rwtaler_t self:process { fork };
+
+allow rwtaler_t self:fifo_file rw_fifo_file_perms;
+allow rwtaler_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(rwtaler_t, rwtaler_conf_t, rwtaler_conf_t)
+manage_files_pattern(rwtaler_t, rwtaler_conf_t, rwtaler_conf_t)
+
+manage_dirs_pattern(rwtaler_t, rwtaler_var_lib_t, rwtaler_var_lib_t)
+manage_files_pattern(rwtaler_t, rwtaler_var_lib_t, rwtaler_var_lib_t)
+files_var_lib_filetrans(rwtaler_t, rwtaler_var_lib_t, { dir file })
+
+manage_dirs_pattern(rwtaler_t, rwtaler_var_run_t, rwtaler_var_run_t)
+manage_files_pattern(rwtaler_t, rwtaler_var_run_t, rwtaler_var_run_t)
+
+sysnet_dns_name_resolve(rwtaler_t)
+corenet_all_recvfrom_unlabeled(rwtaler_t)
+
+allow rwtaler_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(rwtaler_t)
+corenet_tcp_sendrecv_generic_node(rwtaler_t)
+corenet_tcp_sendrecv_all_ports(rwtaler_t)
+corenet_tcp_bind_generic_node(rwtaler_t)
+
+gen_require(`
+    type rwtaler_port_t;
+')
+allow rwtaler_t rwtaler_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type rwtaler_port_t;
+')
+allow rwtaler_t rwtaler_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(rwtaler_t)
+
+files_read_etc_files(rwtaler_t)
+
+miscfiles_read_localization(rwtaler_t)
+
+sysnet_dns_name_resolve(rwtaler_t)
+
+allow rwtaler_t rwtaler_exec_t:file execute_no_trans;
+allow rwtaler_t self:process setsched;
+corecmd_exec_ls(rwtaler_t)
+corenet_tcp_connect_http_port(rwtaler_t)
+dev_read_urand(rwtaler_t)
+fs_getattr_xattr_fs(rwtaler_t)
+kernel_read_system_state(rwtaler_t)
