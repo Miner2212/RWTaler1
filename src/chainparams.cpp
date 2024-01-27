@@ -126,7 +126,7 @@ public:
         nTargetSpacing = 1 * 60;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 999999999999 * COIN;
+        nMaxMoneyOut = 99999999999 * COIN;
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 100000000000;
@@ -134,13 +134,13 @@ public:
         nZerocoinStartHeight = 0;
         nZerocoinStartTime = 1702971612;
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 99999999999; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 99999999999; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 99999999999; //Last valid accumulator checkpoint
-        nBlockEnforceInvalidUTXO = 99999999999; //Start enforcing the invalid UTXO's
+        nBlockRecalculateAccumulators = 9999999999; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 9999999999; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 9999999999; //Last valid accumulator checkpoint
+        nBlockEnforceInvalidUTXO = 9999999999; //Start enforcing the invalid UTXO's
         nInvalidAmountFiltered = 0; //Amount of invalid coins filtered through exchanges, that should be considered valid
-        nBlockZerocoinV2 = 99999999999;
-        nBlockDoubleAccumulated = 99999999999;
+        nBlockZerocoinV2 = 9999999999;
+        nBlockDoubleAccumulated = 9999999999;
         nEnforceNewSporkKey = 1702971612;
         nRejectOldSporkKey = 1527811200; 
 
